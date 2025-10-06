@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saiprem Kadlur - Mechatronics Engineer</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.98);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #667eea;
+            text-shadow: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        /* Hero Section with Video Background */
+/* Enhanced Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        #hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        /* Enhanced overlay with gradient */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                45deg, 
+                rgba(102, 126, 234, 0.7) 0%, 
+                rgba(118, 75, 162, 0.6) 50%,
+                rgba(0, 0, 0, 0.4) 100%
+            );
+            z-index: 2;
+        }
+
+        /* Animated particles background */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .particle:nth-child(1) { width: 4px; height: 4px; top: 20%; left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { width: 6px; height: 6px; top: 60%; left: 20%; animation-delay: 1s; }
+        .particle:nth-child(3) { width: 3px; height: 3px; top: 40%; left: 80%; animation-delay: 2s; }
+        .particle:nth-child(4) { width: 5px; height: 5px; top: 80%; left: 70%; animation-delay: 3s; }
+        .particle:nth-child(5) { width: 4px; height: 4px; top: 30%; left: 90%; animation-delay: 4s; }
+        .particle:nth-child(6) { width: 7px; height: 7px; top: 70%; left: 15%; animation-delay: 5s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.5; }
+            50% { transform: translateY(-20px) rotate(180deg); opacity: 1; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            max-width: 900px;
+            padding: 0 20px;
+        }
+
+        /* Enhanced typography */
+        .hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4.5rem;
+    margin-bottom: 1.5rem;
+    animation: slideInUp 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    font-weight: 700;
+    color: #ffffff;  /* Pure white for maximum contrast */
+text-shadow: 2px 2px 8px rgba(0,0,0,0.8);  /* Strong dark shadow for depth */
+    letter-spacing: 2px;
+ 
+}
+     .hero-subtitle {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    margin-bottom: 2.5rem;
+    animation: slideInUp 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both;
+    color: #ffffff;  /* Pure white */
+    font-weight: 300;
+    line-height: 1.6;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.8); /* Dark shadow for better readability */
+}
+
+        /* Animated skill tags */
+        .hero-skills {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            animation: slideInUp 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s both;
+        }
+
+   .skill-tag {
+    background: rgba(102, 126, 234, 0.9);  /* Your brand blue with high opacity */
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    /* ... other properties */
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    animation: skillFloat 3s ease-in-out infinite;
+}
+
+        .skill-tag:nth-child(odd) {
+            animation-delay: 0.5s;
+        }
+
+        .skill-tag:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        @keyframes skillFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+
+        /* Enhanced CTA buttons */
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            animation: slideInUp 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 16px 35px;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: 2px solid transparent;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.6);
+        }
+
+        .cta-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .cta-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-arrow {
+            width: 30px;
+            height: 30px;
+            border: 2px solid rgba(255, 255, 255, 0.7);
+            border-top: none;
+            border-right: none;
+            transform: rotate(-45deg);
+            animation: scrollPulse 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        @keyframes scrollPulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        /* Download buttons styling */
+        .download-buttons {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .download-btn {
+            display: inline-block;
+            padding: 12px 25px;
+            margin: 0 10px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            font-size: 1rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        section:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 1rem auto;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+            margin: 0 auto;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-category h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-image {
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-content h4 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .project-content p {
+            margin-bottom: 1rem;
+            color: #666;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tech-tag {
+            background: #667eea;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+        }
+
+        /* Resume Section */
+        .resume-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .resume-section {
+            margin-bottom: 3rem;
+        }
+
+        .resume-section h4 {
+            font-size: 1.5rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 0.5rem;
+        }
+
+        .resume-item {
+            margin-bottom: 2rem;
+        }
+
+        .resume-item h5 {
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .resume-item .company {
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .resume-item .date {
+            color: #666;
+            font-style: italic;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            text-align: center;
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Animations */
+       /* Enhanced animations */
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .download-btn {
+                display: block;
+                margin: 10px auto;
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">Saiprem Kadlur</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#resume">Resume</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section with Video Background -->
+   <!-- Enhanced Hero Section -->
+    <section id="home" class="hero">
+        <!-- Background Video -->
+        <video autoplay muted loop playsinline id="hero-video">
+            <source src="bgvideo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <!-- Enhanced Overlay -->
+        <div class="overlay"></div>
+
+        <!-- Floating Particles -->
+        <div class="particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+
+        <!-- Enhanced Hero Content -->
+        <div class="hero-content">
+            <h1>Saiprem Kadlur</h1>
+            <p class="hero-subtitle">Passionate Mechatronics Engineer crafting innovative solutions through the perfect blend of mechanics, electronics, and intelligent automation</p>
+            
+            <!-- Animated Skill Tags -->
+            <div class="hero-skills">
+                <span class="skill-tag">IoT & Embedded Systems</span>
+                <span class="skill-tag">3D Printing</span>
+                <span class="skill-tag">CAD Design</span>
+                <span class="skill-tag">Automation</span>
+                <span class="skill-tag">Carbon Fiber</span>
+            </div>
+
+            <!-- Enhanced CTA Buttons -->
+            <div class="cta-buttons">
+                <a href="#projects" class="cta-button cta-primary">View My Work</a>
+                <a href="#contact" class="cta-button cta-secondary">Get In Touch</a>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="profile-img">👨‍🔧</div>
+                </div>
+                <div class="about-text">
+                    <h3>Passionate Mechatronics Engineer</h3>
+                    <p>Hi, I'm Saiprem, and I've always been fascinated by the way machines and technology work together to solve real-world problems. For me, mechatronics is more than a field—it's the perfect blend of mechanics, electronics, and software that turns bold ideas into smart, practical solutions.</p>
+                    <p>My curiosity naturally led me to IoT and embedded systems, because I believe connected technology is shaping the future. The idea of building systems that can sense, respond, and communicate excites me—it's like giving intelligence to everyday objects.</p>
+                    <p>Alongside electronics and automation, I'm passionate about 3D printing and CAD modeling. There's something truly rewarding about taking an idea from concept to a physical product you can hold. From prototyping mechanical components to designing detailed models in SolidWorks and AutoCAD, I enjoy the challenge of turning ideas into reality.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Skills & Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Design & Simulation</h4>
+                    <ul class="skill-list">
+                        <li>SolidWorks</li>
+                        <li>Fusion 360</li>
+                        <li>AutoCAD</li>
+                        <li>Blender</li>
+                        <li>CAD Modeling</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>Electronics & Programming</h4>
+                    <ul class="skill-list">
+                        <li>Arduino</li>
+                        <li>Raspberry Pi</li>
+                        <li>ESP32</li>
+                        <li>Embedded C</li>
+                        <li>Python</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>Manufacturing & Prototyping</h4>
+                    <ul class="skill-list">
+                        <li>FDM & SLA 3D Printing</li>
+                        <li>CNC Machining</li>
+                        <li>Composite Fabrication</li>
+                        <li>Carbon Fiber Layups</li>
+                        <li>Vacuum Infusion</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>IoT & Embedded Systems</h4>
+                    <ul class="skill-list">
+                        <li>PCB Design (EasyEDA, KiCad)</li>
+                        <li>Sensor Integration</li>
+                        <li>IoT Solutions</li>
+                        <li>Automation Systems</li>
+                        <li>Electroplating</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+    <img src="telemount.png" alt="Telescopic Mount for Cancer Hospital" style="width: 100%; height: 100%; object-fit: contain; background-color: #f8f9fa;">
+</div>
+                    <div class="project-content">
+                        <h4>Telescopic Mount for Cancer Hospital</h4>
+                        <p>Designed a cost-effective PETG telescopic mount for imaging systems at Tata Cancer Hospital, reducing material costs significantly compared to metal fabrication.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">SolidWorks</span>
+                            <span class="tech-tag">3D Printing</span>
+                            <span class="tech-tag">PETG</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">🔧</div>
+                    <div class="project-content">
+                        <h4>Cost-Effective CNC Machine for PCB</h4>
+                        <p>Designed and developed a compact CNC PCB milling machine for students and makers, with automated G-code generation from PCB layouts.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">CNC Machining</span>
+                            <span class="tech-tag">G-code</span>
+                            <span class="tech-tag">PCB Design</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">🤖</div>
+                    <div class="project-content">
+                        <h4>Object-Sorting Conveyor System</h4>
+                        <p>Built an intelligent conveyor system using Raspberry Pi with logic for sorting items based on size and color via advanced sensor integration.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Raspberry Pi</span>
+                            <span class="tech-tag">Sensor Integration</span>
+                            <span class="tech-tag">Automation</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+    <img src="uav.png" alt="UAV Surveillance Drone" style="width: 100%; height: 100%; object-fit: contain; background-color: #f8f9fa;">
+</div>
+                    <div class="project-content">
+                        <h4>UAV Surveillance Drone</h4>
+                        <p>Designing a lightweight UAV using carbon fiber composite structures with integrated FPV camera, GPS, and flight controller for real-time surveillance.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Carbon Fiber</span>
+                            <span class="tech-tag">Vacuum Infusion</span>
+                            <span class="tech-tag">Flight Controller</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">⚖️</div>
+                    <div class="project-content">
+                        <h4>Self-Balancing Robot</h4>
+                        <p>Building a two-wheeled self-balancing robot with modular design using gyroscope and accelerometer feedback for high stability and precision control.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Arduino</span>
+                            <span class="tech-tag">Sensor Fusion</span>
+                            <span class="tech-tag">PID Control</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">🔬</div>
+                    <div class="project-content">
+                        <h4>Electroplating 3D Printed Parts</h4>
+                        <p>Developing a process to metal-coat FDM 3D printed parts for enhanced strength, conductivity, and appearance with optimized surface preparation.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Electroplating</span>
+                            <span class="tech-tag">3D Printing</span>
+                            <span class="tech-tag">Surface Treatment</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume">
+        <div class="container">
+            <h2 class="section-title">Resume</h2>
+            <div class="download-buttons">
+                <button id="downloadResume" class="download-btn">📄 Download Resume</button>
+                <button id="downloadLinkedIn" class="download-btn">💼 View LinkedIn Profile</button>
+            </div>
+            <div class="resume-content">
+                <div class="resume-section">
+                    <h4>Education</h4>
+                    <div class="resume-item">
+                        <h5>Bachelor of Engineering (B.Tech) - Mechanical Engineering</h5>
+                        <p class="company">Fr. Conceicao Rodrigues Institute of Technology, Vashi</p>
+                        <p class="date">2023 - 2027</p>
+                        <p><strong>Minors:</strong> IoT and Embedded Systems</p>
+                    </div>
+                    <div class="resume-item">
+                        <h5>12th Science (PCMB)</h5>
+                        <p class="company">Guru Nanak Vidyak Society</p>
+                        <p class="date">2021 - 2023</p>
+                    </div>
+                </div>
+                
+                <div class="resume-section">
+                    <h4>Experience</h4>
+                    <div class="resume-item">
+                        <h5>Project Development Intern</h5>
+                        <p class="company">Directronics, Navi Mumbai</p>
+                        <p class="date">December 2024 - Present</p>
+                        <p><strong>Key Achievements:</strong><br>
+                           ★ Successfully completed 3000+ hours of FDM 3D printing, delivering high-precision parts for various projects<br>
+                           ★ Designed and implemented a cost-effective PETG telescopic mount for cancer hospital imaging systems<br>
+                           ★ Built object-sorting conveyor system using Raspberry Pi with sensor integration<br>
+                           ★ Contributed to multiple IoT and embedded systems projects using Arduino, Raspberry Pi, and ESP32</p>
+                    </div>
+                    <div class="resume-item">
+                        <h5>Mechanical Engineering Intern</h5>
+                        <p class="company">JSM Composites, MIDC Turbhe</p>
+                        <p class="date">June 2024 - July 2024</p>
+                        <p><strong>Key Achievements:</strong><br>
+                           ★ Designed precision moulds in SolidWorks for carbon fiber component manufacturing<br>
+                           ★ Fabricated aerospace-grade carbon fiber parts for fixed-wing aircraft and drone applications<br>
+                           ★ Operated 3-axis CNC machines and gained hands-on experience with CAM software<br>
+                           ★ Conducted quality checks and dimensional inspections of composite components</p>
+                    </div>
+                </div>
+
+                <div class="resume-section">
+                    <h4>Key Projects</h4>
+                    <div class="resume-item">
+                        <h5>Design and Fabrication of Cost-Effective CNC Machine for PCB Manufacturing</h5>
+                        <p class="date">2024 - 2025</p>
+                        <p>• Designed compact CNC PCB milling machine for students and makers<br>
+                           • Automated G-code generation from PCB layouts<br>
+                           • Conducted iterative testing to improve machining accuracy</p>
+                    </div>
+                    <div class="resume-item">
+                        <h5>UAV Surveillance Drone with Carbon Fiber Structure</h5>
+                        <p class="date">Ongoing</p>
+                        <p>• Designing lightweight UAV using carbon fiber composite structures<br>
+                           • Integrating FPV camera, GPS, and flight controller for surveillance</p>
+                    </div>
+                </div>
+
+                <div class="resume-section">
+                    <h4>Technical Skills</h4>
+                    <div class="resume-item">
+                        <p><strong>Design & Simulation:</strong> SolidWorks, Fusion 360, Blender, AutoCAD<br>
+                           <strong>Programming:</strong> Arduino, Raspberry Pi, ESP32, Embedded C, Python<br>
+                           <strong>Manufacturing:</strong> FDM & SLA 3D Printing, CNC Milling, Composite Fabrication<br>
+                           <strong>Electronics:</strong> PCB Design (EasyEDA, KiCad), IoT Systems, Sensor Integration</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <p>I'm always open to discussing new opportunities, collaborating on innovative projects, or connecting with fellow engineers and makers. Let's create something impactful together!</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span class="contact-icon">📧</span>
+                        <p>saipremkadlur7@gmail.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📱</span>
+                        <p>+91 9321634655</p>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">💼</span>
+                        <p><a href="https://www.linkedin.com/in/saipremkadlur" target="_blank" style="color: #667eea; text-decoration: none;">LinkedIn Profile</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <p>Sanpada, Navi Mumbai</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Saiprem Kadlur. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Resume download functionality
+            const downloadResumeBtn = document.getElementById('downloadResume');
+            const downloadLinkedInBtn = document.getElementById('downloadLinkedIn');
+
+            if (downloadResumeBtn) {
+                downloadResumeBtn.addEventListener('click', function() {
+                    window.open('saiprem_resume.pdf', '_blank'); // Opens your resume in a new tab
+                });
+            }
+
+            if (downloadLinkedInBtn) {
+                downloadLinkedInBtn.addEventListener('click', function() {
+                    window.open('https://www.linkedin.com/in/saipremkadlur/', '_blank'); // Opens your LinkedIn profile
+                });
+            }
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (header) {
+                if (window.scrollY > 100) {
+                    header.style.background = 'rgba(255, 255, 255, 0.99)';
+                } else {
+                    header.style.background = 'rgba(255, 255, 255, 0.98)';
+                }
+            }
+        });
+    // Add parallax effect to particles
+        window.addEventListener('mousemove', (e) => {
+            const particles = document.querySelectorAll('.particle');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            particles.forEach((particle, index) => {
+                const speed = (index + 1) * 0.5;
+                particle.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+            });
+        });
+    </script>
+</body>
+</html>
