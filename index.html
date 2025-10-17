@@ -61,7 +61,7 @@
             transform: translateY(-2px);
         }
 
-        /* --- SKILLS CARD HOVER GLOW EFFECT (Restored) --- */
+        /* --- SKILLS CARD HOVER GLOW EFFECT --- */
         .skill-card-hover:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px var(--shadow-color);
@@ -134,10 +134,15 @@
 </head>
 <body class="text-white">
 
-    <header class="fixed top-0 left-0 right-0 z-50 hero-header">
+    <header class="fixed top-0 left-0 right-0 z-50 hero-header" id="main-header">
         <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
             <div class="text-2xl font-extrabold logo-color font-playfair transition duration-300 nav-links-text text-cyan-400">Saiprem Kadlur</div>
-            <ul class="hidden md:flex space-x-8 font-medium">
+            
+            <button class="md:hidden text-white nav-links-text text-2xl z-50" id="menu-button" aria-label="Toggle navigation">
+                ☰
+            </button>
+            
+            <ul class="hidden md:flex space-x-8 font-medium" id="desktop-menu">
                 <li><a href="#home" class="hero-nav-link nav-links-text">Home</a></li>
                 <li><a href="#about" class="hero-nav-link nav-links-text">About</a></li>
                 <li><a href="#skills" class="hero-nav-link nav-links-text">Skills</a></li>
@@ -146,6 +151,17 @@
                 <li><a href="#contact" class="hero-nav-link nav-links-text">Contact</a></li>
             </ul>
         </nav>
+
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-gray-800/95 shadow-lg pt-2 pb-4 backdrop-blur-sm">
+            <ul class="flex flex-col space-y-4 text-center text-lg">
+                <li><a href="#home" class="mobile-nav-link block py-2 text-cyan-400 hover:bg-gray-700 transition">Home</a></li>
+                <li><a href="#about" class="mobile-nav-link block py-2 text-cyan-400 hover:bg-gray-700 transition">About</a></li>
+                <li><a href="#skills" class="mobile-nav-link block py-2 text-cyan-400 hover:bg-gray-700 transition">Skills</a></li>
+                <li><a href="#projects" class="mobile-nav-link block py-2 text-cyan-400 hover:bg-gray-700 transition">Projects</a></li>
+                <li><a href="#resume" class="mobile-nav-link block py-2 text-cyan-400 hover:bg-gray-700 transition">Resume</a></li>
+                <li><a href="#contact" class="mobile-nav-link block py-2 text-cyan-400 hover:bg-gray-700 transition">Contact</a></li>
+            </ul>
+        </div>
     </header>
 
     <section id="home" class="hero">
@@ -495,6 +511,24 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Initial call to catch elements already in the viewport
             handleAnimations();
+
+            // --- Mobile Menu Toggle Logic (Re-implemented) ---
+            const menuButton = document.getElementById('menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+            if (menuButton) {
+                menuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+            
+            // Close mobile menu when a link is clicked
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
 
             // Setup button actions for Resume Section
             document.getElementById('downloadResume').addEventListener('click', function() {
